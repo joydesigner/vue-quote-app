@@ -2,7 +2,14 @@
 
    <div class="container">
     <app-new-quote @quoteAdded="newQuote"></app-new-quote>
-    <app-quote-grid :quotes="quotes"></app-quote-grid>
+    <app-quote-grid :quotes="quotes" @quoteDeleted = "deleteQuote"></app-quote-grid>
+    <div class="row alert-row">
+      <div class="col-sm-12 text-center">
+        <div class="alert alert-info">
+          Click on a quote to delete it!
+        </div>
+      </div>
+    </div>
    </div>
 </template>
 
@@ -26,12 +33,15 @@ export default {
   methods: {
     newQuote(quote) {
       this.quotes.push(quote);
+    },
+    deleteQuote(index) {
+      this.quotes.splice(index, 1);
     }
   },  
 }
 </script>
 
-<style>
+<style lang='scss'>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,5 +49,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+ 
 }
+ .alert-row {
+    margin-top: 15px;
+  }
 </style>

@@ -1,7 +1,7 @@
 <template>
      <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="panel panel-default">
-            <div class="panel-body quote">
+            <div class="panel-body quote text-center">
                 <slot></slot>
             </div>
         </div>
@@ -26,7 +26,6 @@ export default {
         cursor: pointer;
         padding: 15px;
         border-radius: 10px;
-        text-align: center;
         &:hover {
             background: #ffe2e2;
         }
